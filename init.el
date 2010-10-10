@@ -1,6 +1,3 @@
-
-
-
 ;;; This was installed by package-install.el.
 ;;; This provides support for the package system and
 ;;; interfacing with ELPA, the package archive.
@@ -10,6 +7,11 @@
     (load
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
+
+;;; Highlight lines if not in console
+(if (memq window-system '(x w32 mac))
+    ;; load if not in console
+    (load-cfg-files '("cfg_highlight_current_line")))
 
 ;;; Add emacs folders to load path
 (setq load-path (cons "~/.emacs.d/" load-path))
@@ -38,3 +40,20 @@
 
 (add-dirs-to-loadpath emacs-vendor-dir)
 (add-dirs-to-loadpath "~/.emacs.d/elpa/")
+
+(defun load-cfg-files (filelist)
+  (dolist (file filelist)
+    (let ((filename (expand-file-name (concat emacs-config-dir file ".el"))))
+      (if (file-exists-p filename)
+          (progn
+            (load (concat filename))
+            (message "Loaded config file: %s" filename))
+      	(message "Could not load file: %s" filename)))))
+
+
+;; Load my config files
+(load-cfg-files '(
+		  "cfg_generic"
+          "cfg_color-theme"
+          "cfg_last"
+))

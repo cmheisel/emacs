@@ -1,3 +1,6 @@
 [submodule "themes/github"]
 	path = themes/github
 	url = http://github.com/dudleyf/color-theme-github.git
+[submodule "vendor/markdown-mode"]
+	path = vendor/markdown-mode
+	url = git://jblevins.org/git/markdown-mode.git

@@ -55,5 +55,7 @@
 (load-cfg-files '(
 		  "cfg_generic"
           "cfg_color-theme"
+          "cfg_python"
+          "cfg_markdown"
           "cfg_last"
 ))

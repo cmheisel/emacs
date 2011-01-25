@@ -1,3 +1,6 @@
+;; set up winner mode
+(winner-mode 1)
+
 ;; alter default behavior
 (prefer-coding-system 'utf-8) ;; use utf-8
 

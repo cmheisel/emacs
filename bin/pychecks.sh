@@ -1,12 +1,13 @@
 #!/bin/bash
-PYFLAKES=`type -P pyflakes &>/dev/null`
-PEP8=`type -P pep8 &>/dev/null`
+command_exists () {
+    type "$1" &> /dev/null ;
+}
 
-if $PYFLAKES; then
+if command_exists pyflakes; then
     `which pyflakes` "$1"
 fi
 
-if $PEP8; then
+if command_exists pep8; then
     `which pep8` --repeat "$1"
 fi
 

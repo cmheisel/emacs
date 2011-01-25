@@ -54,6 +54,7 @@
 ;; Load my config files
 (load-cfg-files '(
 		  "cfg_generic"
+          "cfg_smex"
           "cfg_color-theme"
           "cfg_python"
           "cfg_markdown"

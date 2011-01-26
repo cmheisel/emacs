@@ -1,3 +1,18 @@
+(defun save-in-other-file (new-filename)
+  (interactive "FFilename:")
+  (write-region (point-min) (point-max) new-filename))
+
+;; Set auto backups to be in temp dir
+(setq backup-directory-alist
+          `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+          `((".*" ,temporary-file-directory t)))
+;; Set a short interval and activate auto save
+(setq auto-save-interval 50)
+(setq auto-save-mode t)
+(do-auto-save)
+
+
 ;; set up winner mode
 (winner-mode 1)
 

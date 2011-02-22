@@ -54,6 +54,7 @@
 ;; Load my config files
 (load-cfg-files '(
 		  "cfg_generic"
+          "cfg_textmate"
           "cfg_word-count"
           "cfg_smex"
           "cfg_color-theme"
